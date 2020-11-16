@@ -4,7 +4,7 @@ import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
-
+import dash_daq as daq
 # Imports from this application
 from app import app
 
@@ -17,7 +17,7 @@ column1 = dbc.Col(
         
             ## Predictions
 
-            Your instructions: How to use your app to get new predictions.
+            Example to make sure commit worked
 
             """
         ),
@@ -27,7 +27,12 @@ column1 = dbc.Col(
 
 column2 = dbc.Col(
     [
-
+        daq.Knob(
+        id='my-daq-knob',
+        min=0,
+        max=12,
+        value=7
+        )  
     ]
 )
 
