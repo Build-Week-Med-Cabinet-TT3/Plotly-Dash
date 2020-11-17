@@ -37,12 +37,22 @@ column3 = dbc.Col(
     [
         dcc.Markdown(
             """
-        
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
             ## Are you ready to try medical cannabis?
 
-            Med Cabinet listens to you and your needs. Do you need help sleeping? Pain relief? Do you want to feel calm, or energetic?
+        
 
-            Med Cabinet is created for the first-time MMJ user, who wants to explore the therapeutic possibilities of cannabis.
+            Med Cabinet listens to you and your needs. Do you need help sleeping? Pain relief? Do you want to feel calm, or energetic?
+            
+
+            
+            Med Cabinet is created for the first-time MMJ user who wants to explore the therapeutic possibilities of cannabis.
+            
+            
 
             """
         ),
@@ -51,8 +61,12 @@ column3 = dbc.Col(
     md=4,
 )
 
+
+
 # image = html.Img(src='/assets/pipe_closeup.jpg', className='img-fluid')
 layout = dbc.Row([column1, column2, column3], 
-                style={'width': '100%',
-                'height':'100%',
-                'background-image': 'url(/assets/pipe_closeup.jpg'})
+                style={'color':'white',
+                'width': '100%',
+                'height':'650px',
+                'background-image': 'url(/assets/pipe_closeup.jpg',
+                'background-size': '1100px'})
