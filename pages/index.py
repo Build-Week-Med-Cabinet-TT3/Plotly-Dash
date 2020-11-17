@@ -25,6 +25,7 @@ column2 = dbc.Col(
     [
         dcc.Markdown(
             """
+
             """
         ),
     ],
@@ -50,4 +51,8 @@ column3 = dbc.Col(
     md=4,
 )
 
-layout = dbc.Row([column1, column2, column3])
+# image = html.Img(src='/assets/pipe_closeup.jpg', className='img-fluid')
+layout = dbc.Row([column1, column2, column3], 
+                style={'width': '100%',
+                'height':'100%',
+                'background-image': 'url(/assets/pipe_closeup.jpg'})
