@@ -16,12 +16,15 @@ column1 = dbc.Col(
             """
         
             ## Insights
+            Write your insights here.
 
 
             """
         ),
+    html.Img(src='/assets/pipe_right.jpeg', title="18th century pipe, images courtesy of metmuseum.org", style={'width':'100%'})    
 
-    ],
+    ]
 )
+
 
 layout = dbc.Row([column1])

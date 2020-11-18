@@ -32,7 +32,6 @@ column2 = dbc.Col(
     md=4,
 )
 
-
 column3 = dbc.Col(
     [
         dcc.Markdown(
