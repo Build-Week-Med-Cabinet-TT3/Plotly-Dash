@@ -7,7 +7,6 @@ import dash_table
 from dash.dependencies import Input, Output, State
 import dash_daq as daq
 import json
-import regex as re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import NearestNeighbors
 import spacy
