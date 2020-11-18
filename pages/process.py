@@ -57,6 +57,7 @@ column1 = dbc.Col(
                 * Have a working model
             """
         ),
+        html.Img(src='assets/pipe_left_crop.jpeg', title="18th century pipe, images courtesy of metmuseum.org", style={'width':'100%'})
     ],
 )
 layout = dbc.Row([column1])
