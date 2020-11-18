@@ -3,6 +3,7 @@ import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
+import dash_table
 from dash.dependencies import Input, Output, State
 import dash_daq as daq
 import json
@@ -134,7 +135,11 @@ row = html.Div(
         ),
         dbc.Row(
             [
-                dbc.Button('Submit', id='Submit', color='primary', n_clicks=0),
+                dbc.Col(
+                    [
+                        dbc.Button('Submit', id='Submit', color='primary', n_clicks=0),
+                    ]
+                ),
                 html.Div(id='output', className='lead')
             ]
         )
@@ -172,6 +177,8 @@ def recommender(n_clicks, input1, input2, input3, input4):
         for i in [input1, input2, input3, input4]:
             if i is None:
                 pass
+            elif type(i) == str:
+                text.append(i)
             else:
                 text = text + list(i)
         if text == []:
@@ -179,7 +186,25 @@ def recommender(n_clicks, input1, input2, input3, input4):
         input_features = tfidf.transform(text)
         for i in knn.kneighbors(input_features, n_neighbors=5, return_distance=False)[0]:
             x = x.append(df.iloc[[i]])
-        return x.to_json()
+        x = x[['name', 'type', 'effects', 'ailment', 'flavor']]
+        x = x.rename(columns={'name': 'Name', 'type': 'Type', 'effects': 'Effects',
+                              'ailment': 'Ailment', 'flavor': 'Flavor'})
+        
+        y = dash_table.DataTable(
+            id='table',
+            columns=[{"name": i, "id": i} for i in x.columns],
+            data=x.to_dict('records'),
+            style_cell={
+                'textAlign': 'left',
+                'backgroundColor': 'rgba(50,50,50,0)',
+                'color': 'primary',
+                'whiteSpace': 'normal',
+                'height': '30px',
+                'lineHeight': '15px',
+                'maxWidth': 400,
+            }
+        )
+        return y
 
 if __name__ == '__main__':
     app.run_server(debug=True)
