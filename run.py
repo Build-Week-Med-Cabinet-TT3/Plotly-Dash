@@ -32,21 +32,24 @@ navbar = dbc.NavbarSimple(
 # mr (margin right) : https://getbootstrap.com/docs/4.3/utilities/spacing/
 # className='lead' : https://getbootstrap.com/docs/4.3/content/typography/#lead
 footer = dbc.Container(
-    dbc.Row(
+    dbc.Row([
         dbc.Col(
             html.P(
                 [
-                    html.Span('Hunter Ashby, Elizabeth Edwards-Appell, Leo NeAlon, & Rassamy Soumphonphakdy', className='mr-2'), 
-                    html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:<you>@<provider>.com'), 
-                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/Build-Week-Med-Cabinet-TT3/Plotly-Dash'), 
-                    html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/<you>/'), 
-                    html.A(html.I(className='fab fa-twitter-square mr-1'), href='https://twitter.com/<you>'), 
+                    html.A(html.I('Meet the team'), href='/team')
                 ], 
                 className='lead'
             )
+        ),
+        dbc.Col([
+        dcc.Markdown(
+            """
+            The information on this site is not intended or implied to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read on this website.
+            """
         )
+        ])
+    ])
     )
-)
 
 # Layout docs:
 # html.Div: https://dash.plot.ly/getting-started
