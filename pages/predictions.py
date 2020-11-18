@@ -3,13 +3,21 @@ import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 import dash_daq as daq
+import json
+import regex as re
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.neighbors import NearestNeighbors
+import spacy
+import pickle
+import pandas as pd
 # Imports from this application
 from app import app
 
 # 2 column layout. 1st column width = 4/12
 # https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
+
 row = html.Div(
     [
         dbc.Row(
@@ -123,8 +131,55 @@ row = html.Div(
                     ]
                 )
             ]
+        ),
+        dbc.Row(
+            [
+                dbc.Button('Submit', id='Submit', color='primary', n_clicks=0),
+                html.Div(id='output', className='lead')
+            ]
         )
     ]
 )
 
 layout = row
+
+df = pd.read_csv('https://raw.githubusercontent.com/kushyapp/cannabis-dataset/master/Dataset/Strains/strains-kushy_api.2017-11-14.csv', index_col='id')
+df = df[['status', 'name', 'type', 
+         'breeder','effects','ailment',
+         'flavor','thc','thca','cbd','cbda']]
+df = df[df['effects'].notna()]
+df = df[df['ailment'].notna()]
+
+knn = pickle.load(open('model.pkl', 'rb'))
+
+tfidf = pickle.load(open('tfidf.pkl', 'rb'))
+
+@app.callback(
+    Output('output', 'children'),
+    [Input('Submit', 'n_clicks')],
+    [
+        State("ctype", "value"),
+        State("effects", "value"),
+        State("ailment", "value"),
+        State("flavor", "value"),
+    ],
+)
+
+def recommender(n_clicks, input1, input2, input3, input4):
+    if n_clicks:
+        x = pd.DataFrame(columns=df.columns)
+        text = []
+        for i in [input1, input2, input3, input4]:
+            if i is None:
+                pass
+            else:
+                text = text + list(i)
+        if text == []:
+            return "You need to put something in"
+        input_features = tfidf.transform(text)
+        for i in knn.kneighbors(input_features, n_neighbors=5, return_distance=False)[0]:
+            x = x.append(df.iloc[[i]])
+        return x.to_json()
+
+if __name__ == '__main__':
+    app.run_server(debug=True)
