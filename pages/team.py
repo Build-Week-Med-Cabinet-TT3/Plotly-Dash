@@ -9,7 +9,7 @@ import plotly.express as px
 
 from app import app
 
-column1 = dbc.Col(
+column1 = dbc.Col(html.Div(
     [
         dcc.Markdown(
             """
@@ -22,11 +22,17 @@ column1 = dbc.Col(
 
             """
         ),
-    ],
-    width=6
+    ]
+)
 )
 
-column2 = dbc.Col(
+column2 = dbc.Col((html.Img(src='assets/TeamCollage.png', style={'width':'100%',
+                                                                 'position':'relative',
+                                                                 'top':'20%',
+                                                                 'bottom':'50%'
+                                                                  })))
+
+column3 = dbc.Col(html.Div(
     [
         dcc.Markdown(
             """       
@@ -43,7 +49,16 @@ column2 = dbc.Col(
             """
         ),
     ],
-    width=6,
-)
+))
 
-layout = dbc.Row([column1, column2])
+layout = html.Div(
+    [
+        dbc.Row(
+            [
+                column1, 
+                column2, 
+                column3
+            ]
+        ),
+    ]
+)
