@@ -52,7 +52,8 @@ column3 = dbc.Row(
             """
             ### Google API:
             To go a bit further, our team decided to add a locations page that would show the nearest dispensaries near 
-            someone's location that is using our application. We decided on using Google Maps Api for this task.  
+            someone's location that is using our application. We decided on using Google Maps Api for this task. When someone is 
+            using our webpage, they can refer to the next tab to find the closest dispensary near them.
             """
         ),
         html.Img(src='assets/pipe_left_crop.jpeg', title="18th century pipe, images courtesy of metmuseum.org", style={'width':'100%'})
