@@ -15,10 +15,10 @@ navbar = dbc.NavbarSimple(
     brand_href='/', 
     children=[
         dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
-        dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link')), 
+        dbc.NavItem(dcc.Link('Locate', href='/locate', className='nav-link')),
         dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')), 
-        dbc.NavItem(dcc.Link('Team', href='/team', className='nav-link')),
-        dbc.NavItem(dcc.Link('Locate', href='/locate', className='nav-link'))
+        dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link')), 
+        dbc.NavItem(dcc.Link('Team', href='/team', className='nav-link'))
     ],
     sticky='top',
     color='light', 
