@@ -13,51 +13,49 @@ column1 = dbc.Col(
         dcc.Markdown(
             """
             # Process
-            
-            Our team was givin roughly a week to complete a model that would take a type of strain and 
-            give out a recommended type giving specific features.
-            
-            ### Monday
-           
-            The teams scheduling started off kind of rough because of how our track team was designed at 
-            first. The team only had two members in Unit 3 and none at all in Unit 4. At first when the team
-            was assembled, we had to finish up assignments that was supposed to be completed on the previous 
-            Friday. After finally getting Github and Trello going along, our team finally was able to start 
-            giving out roles and tasks. With the dataset from "placeholder", our Unit 4 members started
-            data wrangling and deciding what model to use. While Unit 3 spent their time working on the API.
-            
-            Going off of the TODO checklist: 
-             
-                * Our team found a dataset and preformed EDA on it. 
-            
-                * Filled up the "stories" section on Trello. 
-            
-                * Deploy what we had working today onto Heroku.
-            
-                * Decided to use Plotly Dash for our API.
-            
-            Our team was able to complete all the task giving from the module checklist, and was procceding
-            smoothly.
-           
-            ### Tuesday
-           
-            Who would of thought after all these months of starting a stand up or lecture at 9 A.M Lambda
-            time, the calender said to hold it at 8 A.M?? That actually threw our build team off a bit. 
-            However, that did not stop the adaptability and prowess of our team to move things forward.
-            Today our team decided on our model and deploy it onto the correlating files. Because our Unit
-            4 people had the most experience, Unit 3 handed that task to them. The Unit 3 people decided 
-            to pick the brains of how Unit 4 did their process, and Unit 3 continued to work on the API.
-           
-            The TODO checklist for Tuesday is still a WIP: 
-           
-                * Move data so the app can use it
-           
-                * Deploy the data via Heroku 
-           
-                * Have a working model
+            Our team was given roughly a week to complete a model that would take a type of strain (input) and 
+            give out a recommendation someone asking (output), and deploy it to Heroku.
+            ### NLP:
+            During the data exploration process, we put the data into a matrix (a table with columns and rows).
+            Machines cannot analyze raw text on their own. We performed tokenization which is a task in Natural Language Processing (NLP).
+            Without getting into too much details, this method allows us to convert columns that are just text (descriptions of
+            effects, ailments, taste) into numeric values that can be used for machine learning.
+            """
+        ),
+        html.Img(src='assets/nearest_neighbor_ex.png', title="nearest neighbor example, image from wiki", style={'width':'40%'})
+    ],
+)
+column2 = dbc.Row(
+    [
+        dcc.Markdown(
+            """
+            ### Nearest Neighbor:
+            Our team decided the best model to use for the task was the nearest neighbor. Nearest neighbor can easily 
+            take data input and output the desired number of suggestions. Nearest neighbor pretty much sets all the data 
+            you're looking for onto a plane with the recommendation you are searching for as points (in this case the name of 
+            medicinal marijuanas). For an example, if you want a hybrid strain with the effect of happiness, to cure insomnia, 
+            and has an earthy flavor. There might not be a recommendation that is spot on, so with nearest neighbor, our model will 
+            find a point that is between the closest spreads of points, and pick the one with the most points
+            in that area to decide on the recommendation to use.
+            In the picture provided above, we are trying to classify the green circle.
+            Within the inner circle, there are two red triangles and one blue square.
+            Nearest neighbor would classify the green circle as the same as the red 
+            triangle. 
+            """
+        ),
+        #html.Img(src='assets/pipe_left_crop.jpeg', title="18th century pipe, images courtesy of metmuseum.org", style={'width':'100%'})
+    ],
+)
+column3 = dbc.Row(
+    [
+        dcc.Markdown(
+            """
+            ### Google API:
+            To go a bit further, our team decided to add a locations page that would show the nearest dispensaries near 
+            someone's location that is using our application. We decided on using Google Maps Api for this task.  
             """
         ),
         html.Img(src='assets/pipe_left_crop.jpeg', title="18th century pipe, images courtesy of metmuseum.org", style={'width':'100%'})
     ],
 )
-layout = dbc.Row([column1])
+layout = dbc.Row([column1, column2, column3])
