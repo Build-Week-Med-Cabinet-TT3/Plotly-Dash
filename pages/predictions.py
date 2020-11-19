@@ -136,7 +136,16 @@ row = html.Div(
             [
                 dbc.Col(
                     [
-                        dbc.Button('Submit', id='Submit', color='primary', n_clicks=0),
+                        dbc.Button('Submit', id='Submit', color='secondary', n_clicks=0, block=True),
+                        dcc.Markdown(
+                            """
+                            &nbsp; 
+                            &nbsp; 
+                            &nbsp; 
+                            """
+                            ),
+                        dbc.Button('Find dispensaries near you', href='/locate', color='primary', 
+                                    n_clicks=0)
                     ]
                 ),
                 html.Div(id='output', className='lead')
