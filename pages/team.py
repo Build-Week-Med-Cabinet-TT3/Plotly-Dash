@@ -33,7 +33,7 @@ column2 = dbc.Col(
             &nbsp;     
             &nbsp;                    
 
-            **Leo NeAlon** is a data science student at Lambda School excited to break into the quantitative finance industry. His blog is [here](https://leonealon.medium.com/).  [![email Leo](/assets/email_icon_3.png)](mailto:nealonleo9@gmail.com) [![Leo's GitHub](/assets/github_icon.png)](https://github.com/nealonleo9) 
+            **Leo Nealon** is a data science student at Lambda School excited to break into the quantitative finance industry. His blog is [here](https://leonealon.medium.com/).  [![email Leo](/assets/email_icon_3.png)](mailto:nealonleo9@gmail.com) [![Leo's GitHub](/assets/github_icon.png)](https://github.com/nealonleo9) 
             
             &nbsp;  
 
