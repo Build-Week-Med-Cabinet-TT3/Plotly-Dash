@@ -24,6 +24,3 @@ column1 = dbc.Col(
 
 layout = dbc.Row([column1, html.Iframe(src = 'https://www.google.com/maps/embed/v1/search?key={}&q=cannabis+dispensaries'.format(getenv('API_key')), 
                      style={'width':'100%', 'height':'500px'})])
-
-#layout = html.Iframe(src = 'https://www.google.com/maps/embed/v1/search?key={}&q=cannabis+dispensaries'.format(getenv('API_key')), 
- #                    style={'width':'100%', 'height':'500px'})
