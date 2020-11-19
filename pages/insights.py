@@ -15,8 +15,53 @@ column1 = dbc.Col(
         dcc.Markdown(
             """
         
-            ## Insights
-            Write your insights here.
+            ## Unit 3 
+            
+
+
+   
+
+            
+
+
+            """
+        ),
+    
+    ]
+)
+
+column2 = dbc.Col(
+    [
+        dcc.Markdown(
+            """
+        
+            ## Unit 4
+
+            ### Hunter
+            fdgdfgdfgdffggdfdfg
+            fdgdfgfdddddd
+            dfgdfgdgfdgfd
+            ### Leo
+            fdgfdgdfgdfgdf
+            dfgdfgdfgdfffffff
+            dfgdfgdfgdfgdfgdfgd
+
+
+            
+
+
+            """
+        ),
+    
+    ]
+)
+column3 = dbc.Row(
+    [
+        dcc.Markdown(
+            """
+        
+
+            
 
 
             """
@@ -27,4 +72,5 @@ column1 = dbc.Col(
 )
 
 
-layout = dbc.Row([column1])
+
+layout = dbc.Row([column1, column2, column3])
