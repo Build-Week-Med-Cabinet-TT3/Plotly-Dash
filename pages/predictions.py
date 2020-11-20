@@ -130,6 +130,19 @@ row = html.Div(
         ),
         dbc.Row(
             [
+                dcc.Markdown(
+                    """
+                    The table output is searching our database to bring patients the 5 most relevant 
+                    strains for what they are looking for in their medication. It's offers computed 
+                    recommendations that show the top strains that we believe will help the most and have the quality's desired by our patients. If a perfect strain
+                    can not be found the table will display a strain recommended based on what we think
+                    will be the best fit. 
+                    """
+                ),
+            ],
+        ),
+        dbc.Row(
+            [
                 dbc.Col(
                     [
                         dbc.Button('Submit', id='Submit', color='secondary', n_clicks=0, block=True),
@@ -205,7 +218,7 @@ def recommender(n_clicks, input1, input2, input3, input4):
                 'whiteSpace': 'normal',
                 'height': '30px',
                 'lineHeight': '15px',
-                'maxWidth': 400,
+                'maxWidth': '200px',
             }
         )
         return y
