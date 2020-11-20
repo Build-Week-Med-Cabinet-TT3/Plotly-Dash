@@ -132,14 +132,16 @@ row = html.Div(
             [
                 dcc.Markdown(
                     """
-                    The table output is searching our database to bring patients the 5 most relevant 
-                    strains for what they are looking for in their medication. It's offers computed 
-                    recommendations that show the top strains that we believe will help the most and have the quality's desired by our patients. If a perfect strain
-                    can not be found the table will display a strain recommended based on what we think
-                    will be the best fit. 
+                    >Enter at least one preference in at least one of the dropdown menus above 
+                    >and click "Submit."
+
+                    >The output table returns the top five strains, out of nearly 1000 options, 
+                    >that best match your needs according to our model.
+
                     """
                 ),
             ],
+            style={'margin':'20px'}
         ),
         dbc.Row(
             [
