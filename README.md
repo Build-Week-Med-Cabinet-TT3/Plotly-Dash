@@ -1,10 +1,7 @@
-# Dash Template
 
-[Instructions](https://lambdaschool.github.io/ds/unit2/dash-template/)
+# About
 
-# Product Vision Document: 
-
-https://docs.google.com/document/d/1W5DvYxZ7w0BRVx2edskghjsFW5Ri7QgLCNCMGmcm9vA/edit#
+Our app helps patients find the right medical cannabis strains with a Machine Learning model that takes in user data and strain data to produce recommendations.
 
 # How-to
 
@@ -38,3 +35,14 @@ for configuration variables and create a new variable called API_key.
 
 7. To run the app on your local machine, make sure you are in your virtual environment and run
 the command "python run.py" from your terminal.
+
+# Dash Template
+
+[Instructions](https://lambdaschool.github.io/ds/unit2/dash-template/)
+
+If you want to play around with the formatting, here's the [relevant documentation for Dash bootstrap components](https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout)
+
+# Product Vision Document: 
+
+[Read our PVD here](https://docs.google.com/document/d/1W5DvYxZ7w0BRVx2edskghjsFW5Ri7QgLCNCMGmcm9vA/)
+
