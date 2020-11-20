@@ -219,6 +219,8 @@ def recommender(n_clicks, input1, input2, input3, input4):
                 'height': '30px',
                 'lineHeight': '15px',
                 'maxWidth': '200px',
+                'fontFamily': 'arial',
+                'fontSize': '15px'
             }
         )
         return y
